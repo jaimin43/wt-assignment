@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 4</title>
+    <script>
+        function myFunc() {
+        var a = document.getElementById("first");
+        a.value = a.value.toUpperCase();
+
+        var b = document.getElementById("last");
+        b.value = b.value.toUpperCase();
+        }
+        </script>
+</head>
+<body>
+    
+    <form action="" name="myform" onblur="myFunc()">
+        <label for="first">First Name:</label>
+        <input type="text" id="first" name="firstname" placeholder="John" onblur="myFunc()"><br><br>
+
+        <label for="last">Last Name:</label>
+        <input type="text" id="last" name="lastname" placeholder="Rambo" onblur="myFunc()"><br><br>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="johnrambo@gmail.com"><br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="number" id="ph" name="phone" placeholder="9865321478"><br><br>
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" ><br><br>
+
+        <button>Submit</button>
+
+    </form>
+
+
+</body>
+</html>
