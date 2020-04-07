@@ -1,253 +1,86 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <style type="text/css">
-        body {
-            width: 100%;
-            height: auto;
-            margin: 0;
-            padding: 0;
-            background: #ffffff;
-            font-family: Open Sans, sans serif;
-        }
-        
-        #title {
-            text-align: center;
-            font-family: Montserrat;
-            font-size: 70px;
-            line-height: 1;
-            padding: 0;
-            margin: 0;
-            color: rgb(0, 0, 0);
-        }
-        
-        #form_container {
-            width: 450px;
-            height: 600px;
-            margin: 30px auto;
-            padding: 30px;
-            border-radius: 5px;
-            background: #ffffff;
-            position: relative;
-            z-index: 3;
-            border: none;
-            margin-top: 60px;
-        }
-        
-        .card {
-            box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.322);
-            transition: 0.3s;
-            width: -50%;
-        }
-        
-        .card:hover {
-            box-shadow: 0 8px 8px 0 rgba(119, 119, 119, 0.2);
-        }
-        
-        #form {
-            width: 100%;
-            height: auto;
-            margin: 30px auto;
- 
-            border: none;
-        }
-        
-        label {
-            visibility: hidden;
-            font-family: Montserrat;
-        }
-        
-        input {
-            width: calc(100% - 16px);
-            padding: 10px 0 10px 10px;
-            margin: 0;
-            border: 1px solid;
-            border-radius: 5px;
- 
-            position: relative;
-        }
-        
-        input:focus {
-            outline: none;
-            border: 2px solid transparent;
-        }
-        
-        input.isRequired {
-            border: 2px solid #e74c3c;
-        }
-        
-        button {
-            border: none;
-            background: #7100bd;
-            width: 80px;
-            height: 35px;
-            padding: 0;
-            margin-top: 16px;
-            cursor: pointer;
-            box-shadow: 1px 1px 1px #292929, -1px -1px 1px #B2B2B2;
-            border-radius: 5px;
-            transition: all .3s;
-            color: white;
-            font-weight: 700;
-            margin-left: 170px;
-            font-family: Montserrat;
-        }
-        
-        button:hover {
-            background: #973ae4;
-        }
-        
-        button:focus {
-            box-shadow: 1px 1px 1px #B2B2B2, -1px -1px 1px #292929;
-        }
-        
-        .errorMessages {
-            width: calc(100% - 8px);
-            padding: 20px 0;
-            background: #e74c3c;
-            color: white;
-            border: 2px solid #EC644B;
-            display: none;
-        }
-        
-        .errorMessages li {
-            padding: 0 0 5px 0;
-            margin: 0 0 0 30px;
-            font-family: Open Sans, sans serif;
-        }
-        
-        #info {
-            width: 360px;
-            position: absolute;
-            left: 20px;
-            top: 10px;
-        }
-        
-        #info h1 {
-            margin: 10px 0;
-        }
-        
-        #info li {
-            list-style: none;
-            margin-bottom: 5px;
-        }
-        
-        #info li::before {
-            content: '\f1d9';
-            position: absolute;
-            left: 8px;
-            font: normal normal normal 14px/1 FontAwesome;
-            font-size: inherit;
-            text-rendering: auto;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Workshop on Web Technology</title>
+    <link rel="stylesheet" href="pr5.css">
+    <script src="/pr5.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-    <div id="form_container" class="card" class="card:hover">
-        <h2 id="title">Form Validation</h2>
-        <form id="form" action="" accept-charset="UTF-8" method="">
 
-            <ul class="errorMessages"></ul>
+    <div class="wraper">
+        <div class="header">
+            Registration Page
+        </div>
+        <form action="pr5.php"  onsubmit="return validateForm()" name="myForm" method="POST">
+        <div class="form">
+            <div class="inputfield">
+               <label>First Name: </label>
+               <input type="text" class="input" name="fname" required>
+            </div>  
+             <div class="inputfield">
+               <label>Last Name: </label>
+               <input type="text" class="input" name="lname" required>
+            </div> 
+            <div class="inputfield">
+                <label>Email: </label>
+                <input type="email" class="input" name="email" required>
+             </div> 
+            <div class="inputfield">
+               <label>Password: </label>
+               <input type="password" class="input" name="pass" pattern="{8,}">
+            </div>  
+           <div class="inputfield">
+               <label>Confirm Password: </label>
+               <input type="password" class="input" name="cpass">
+            </div> 
+ 
+            <div class="inputfield">
+             <label name="partici">Participants: </label>
+             <div class="partici">
+             <input type="radio" class="input-r" name="partici" value="students"><label for="students">Students</label>
+             <input type="radio" class="input-r" name="partici" value="Faculty"><label for="Faculty">Faculty</label>
+             <input type="radio" class="input-r" name="partici" value="Professional"><label for="Professional">Professional</label>
+             <input type="radio" class="input-r" name="partici" value="Firm Representatives"><label for="Firm Representatives">Firm Representatives</label>
+         </div>
+          </div> 
+ 
+             <div class="inputfield">
+               <label>Gender</label>
+               <div class="gender">
+                 <select>
+                   <option value="">Select</option>
+                   <option value="male" name="gender">Male</option>
+                   <option value="female" name="gender">Female</option>
+                  
+                 </select>
+               </div>
+            </div> 
+ 
 
+            <div class="inputfield">
+                <label>Country: </label>
+                <input type="text" class="input" name="country" required>
+             </div> 
 
-            <label for="fname">First name:</label>
-            <input id="fname" type="text" onblur="requiredField(this)" placeholder="First name" required>
+           <div class="inputfield">
+               <label>Phone Number: </label>
+               <input type="text" class="input" name="phone" required>
+            </div> 
+           <div class="inputfield">
+               <label>Address: </label>
+               <textarea class="textarea" name="address"></textarea >
+            </div> 
 
-            <label for="lname">Last name:</label>
-            <input id="lname" type="text" onblur="requiredField(this)" placeholder="Last name" required>
-
-            <label for="email">Email:</label>
-            <input id="email" type="email" onblur="requiredField(this)" placeholder="Email" required>
-
-            <label for="address">Address:</label>
-            <input id="address" type="textarea" onblur="requiredField(this)" placeholder="Enter Your Address" required>
-
-            <label for="password">Password:</label>
-            <input id="password" type="password" onblur="requiredField(this)" placeholder="Password" required>
-
-            <button type="submit">
-        <span>SUBMIT <i class="fa fa-bolt"></i></span>
-      </button>
+ 
+           <div class="inputfield">
+             <input type="submit" value="Register" class="btn" name="sub">
+           </div>
+         </div>
         </form>
     </div>
-
-    <script type="text/javascript">
-
-        function requiredField(input) {
-            if (input.value.length < 1) {
-      
-                input.style.borderColor = "#e74c3c";
-
-            } else if (input.type == "email") {
-                console.log("this is an email type");
-
-                if (input.value.indexOf("@") != -1 && input.value.indexOf(".") != -1) {
-              
-                    input.style.borderColor = "#2ecc71";
-                } else {
-            
-                    input.style.borderColor = "#e74c3c";
-                }
-
-            } else {
-     
-                input.style.borderColor = "#2ecc71";
-            }
-        }
-
-
-
-
-        var createAllErrors = function() {
-            var form = $(this),
-                errorList = $("ul.errorMessages", form);
-
-            var showAllErrorMessages = function() {
-                errorList.empty();
-
-
-                var invalidFields = form.find(":invalid").each(function(index, node) {
-
-
-                    var label = $("label[for=" + node.id + "] "),
-
-                        message = node.validationMessage || 'Invalid value.';
-
-                    errorList
-                        .show()
-                        .append("<li><span>" + label.html() + "</span> " + message + "</li>");
-                });
-            };
-
-
-            form.on("submit", function(event) {
-                if (this.checkValidity && !this.checkValidity()) {
-                    $(this).find(":invalid").first().focus();
-                    event.preventDefault();
-                }
-            });
-
-            $("input[type=submit], button:not([type=button])", form)
-                .on("click", showAllErrorMessages);
-
-            $("input", form).on("keypress", function(event) {
-                var type = $(this).attr("type");
-                if (/date|email|month|number|search|tel|text|time|url|week/.test(type) &&
-                    event.keyCode == 13) {
-                    showAllErrorMessages();
-                }
-            });
-        };
-
-        $("form").each(createAllErrors);
-    </script>
-
-
+    
 </body>
-
 </html>
